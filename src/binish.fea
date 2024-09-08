@@ -1,21 +1,25 @@
 @bin = [zero one];
 @binoutlower = [xx0 xx1];
 @binoutupper = [xxx0 xxx1];
-@binout = [@binoutlower @binoutupper];
+@binout = [@binoutlower @binoutupper binseparator];
 @binhexout = [x0 x1];
 
 @nonbinhex = [two three four five six seven eight nine a b c d e f];
 @hex = [@bin @nonbinhex];
 @nonbinhexout = [x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF];
-@hexout = [@binhexout @nonbinhexout];
+@hexout = [@binhexout @nonbinhexout hexseparator];
 
 @nonhexout = [a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
 @nonhexin = [g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
 feature liga {
-  # << with guillemotleft
+  # <</>> with guillemot
   sub less less by guillemotleft;
+  sub greater greater by guillemotright;
+  # +- with plusminus
+  sub plus hyphen by plusminus;
+
 } liga;
 
 feature liga {
@@ -40,6 +44,14 @@ feature liga {
   ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
   ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
   ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  
+  # Handling encountering a " a " in a text
+  # Convert if  a or following other hexout
+  sub @hexout space a' space by xA;
+  sub space space a' by xA;
+  # Ignore if followed by a space
+  ignore sub space a' space;
+
 
   # Determined' by previous
   sub @binout @bin' by @binoutlower;
