@@ -14,6 +14,11 @@
 @nonhexin = [g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
 feature liga {
+  # << with guillemotleft
+  sub less less by guillemotleft;
+} liga;
+
+feature liga {
   ignore sub @nonhexout @hex';
   ignore sub @hex @hex';
 
@@ -66,5 +71,4 @@ feature liga {
 
   # Omit commas between bin stuffs
   sub @binout comma' @bin by binseparator;
-
 } liga;
