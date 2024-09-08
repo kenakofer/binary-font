@@ -1,5 +1,7 @@
 @bin = [zero one];
-@binout = [xx0 xx1];
+@binoutlower = [xx0 xx1];
+@binoutupper = [xxx0 xxx1];
+@binout = [@binoutlower @binoutupper];
 @binhexout = [x0 x1];
 
 @nonbinhex = [two three four five six seven eight nine a b c d e f];
@@ -9,7 +11,7 @@
 
 @nonhexout = [a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
-@nonhexin = [g h i j k l m n o p q r s t u v w x y z G H I J K L M N O P Q R S T U V W X Y Z ];
+@nonhexin = [g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
 feature liga {
   ignore sub @nonhexout @hex';
@@ -35,7 +37,7 @@ feature liga {
   ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
 
   # Determined' by previous
-  sub @binout @bin' by @binout;
+  sub @binout @bin' by @binoutlower;
   sub @hexout @bin' by @binhexout;
 
   # Determined' by upcoming hex
@@ -59,7 +61,10 @@ feature liga {
   sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
 
 
-  # Pretty safe it's intended to be binary
-  sub @bin' by @binout;
+  # Pretty safe it's intended to be binary, and it's the first so use the one without the tail.
+  sub @bin' by @binoutupper;
+
+  # Omit commas between bin stuffs
+  sub @binout comma' @bin by binseparator;
 
 } liga;
