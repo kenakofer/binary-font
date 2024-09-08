@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Liberation Binary';
+    src: url('fonts/liberation_binary_rules.otf') format('opentype');
+}
+
+textarea {
+    font-family: 'Liberation Binary', sans-serif;
+}
+input {
+    font-family: 'Liberation Binary', sans-serif;
+}
+body {
+    font-family: 'Liberation Binary', sans-serif;
+}

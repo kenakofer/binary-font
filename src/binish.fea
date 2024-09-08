@@ -1,0 +1,65 @@
+@bin = [zero one];
+@binout = [xx0 xx1];
+@binhexout = [x0 x1];
+
+@nonbinhex = [two three four five six seven eight nine a b c d e f];
+@hex = [@bin @nonbinhex];
+@nonbinhexout = [x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF];
+@hexout = [@binhexout @nonbinhexout];
+
+@nonhexout = [a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
+
+@nonhexin = [g h i j k l m n o p q r s t u v w x y z G H I J K L M N O P Q R S T U V W X Y Z ];
+
+feature liga {
+  ignore sub @nonhexout @hex';
+  ignore sub @hex @hex';
+
+  # Ignore since later characters show this isn't a number
+  ignore sub @hex' @nonhexin;
+  ignore sub @hex' @hex @nonhexin;
+  ignore sub @hex' @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+  ignore sub @hex' @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @hex @nonhexin;
+
+  # Determined' by previous
+  sub @binout @bin' by @binout;
+  sub @hexout @bin' by @binhexout;
+
+  # Determined' by upcoming hex
+  sub @nonbinhex' by @nonbinhexout;
+  sub @bin' @nonbinhex by @binhexout;
+  sub @bin' @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+  sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexout;
+
+
+  # Pretty safe it's intended to be binary
+  sub @bin' by @binout;
+
+} liga;
