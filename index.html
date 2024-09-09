@@ -5,12 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Font Test</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Liberation+Mono&display=swap" rel="stylesheet">
+    <script defer>
+        function syncText() {
+            const leftText = document.getElementById('left-box');
+            const rightText = document.getElementById('right-box');
+            rightText.value = leftText.value;
+
+
+            leftText.addEventListener('input', () => {
+                rightText.value = leftText.value;
+            });
+
+            rightText.addEventListener('input', () => {
+                leftText.value = rightText.value;
+            });
+        }
+
+        window.onload = syncText;
+    </script>
 </head>
 <body>
-    <h1>Testing My Custom Font</h1>
-    <p>This is a paragraph using the custom font.</p>
+    <h1>101 Bit Dance Font 101</h1>
+    <p>
+        A hex- and bit-based OpenType font. Based on Liberation Mono. 
+        Try typing some 1s and 0s for binary, or get four for the price of one with hexadecimal digits.</p>
 
-    <label for="input-box">123 Type something:</label>
-    <textarea id="textarea-box" name="textarea-box" rows="4" cols="50" placeholder="Enter text here"></textarea>
+    <div class="container">
+        <textarea id="left-box" class="left-box" rows="20" placeholder="Liberation Mono">
+I have 12 apples. If I give you 7, I'll have b remaining. (b=1011, which is 2 more than 9 in hex)
+
+Cab is my favorite word, and cab is my favorite number.
+
+   101010101010
+x    3
+   101010101010
++ 000101010101010
+  0001111111111110 (QED :)
+
+Big number better with "shift":
+1.11&lt;&lt;f = 1110,0000,0000,0000
+        
+        
+        
+        </textarea>
+        <textarea id="right-box" class="right-box" rows="20" placeholder="MyCustomFont"></textarea>
+    </div>
 </body>
 </html>

@@ -3,12 +3,25 @@
     src: url('fonts/liberation_binary_rules.otf') format('opentype');
 }
 
-textarea {
-    font-family: 'Liberation Binary', sans-serif;
-}
-input {
-    font-family: 'Liberation Binary', sans-serif;
-}
 body {
     font-family: 'Liberation Binary', sans-serif;
+}
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left-box {
+    font-family: 'Liberation Binary', sans-serif;
+    font-size: 23px;
+}
+
+.right-box {
+    font-family: 'Liberation Mono', monospace;
+    font-size: 23px;
+}
+textarea {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
 }
