@@ -1,7 +1,7 @@
 @bin = [zero one];
 @binoutlower = [xx0 xx1];
 @binoutupper = [xxx0 xxx1];
-@binout = [@binoutlower @binoutupper binseparator];
+@binout = [@binoutlower @binoutupper];
 @binhexout = [x0 x1];
 
 @nonbinhex = [two three four five six seven eight nine a b c d e f];
