@@ -3,7 +3,9 @@ A smart font for hexadecimal and binary numeric tranparency.
 
 ## TODO
 - Add way to type in decimal
-- Space with single bit width
+- Remove leading 0s in hex
+- Shift glyphs right to center better.
+- decimal and repeating points with 0 width
 - Better test page and README
 - Better stylization, maybe hide the numerals in the hex digits?
     - Should be easier to handwrite

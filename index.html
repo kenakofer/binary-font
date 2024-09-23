@@ -27,9 +27,20 @@
 </head>
 <body>
     <h1>101 Bit Dance Font 101</h1>
-    <p>
-        A hex- and bit-based OpenType font. Based on Liberation Mono. 
-        Try typing some 1s and 0s for binary, or get four for the price of one with hexadecimal digits.</p>
+    <div class="container">
+        <div class="right-box">
+            <p> A hex- and bit-friendly OpenType font. Try it out by typing some numbers below!</p>
+            <ul>
+                <li> Download the font: <a href='fonts/liberation_binary_rules.otf'>liberation_binary.otf</a> </li>
+                <li> Why... any of this? <a href='https://www.youtube.com/watch?v=rDDaEVcwIJM'>the best way to count</a> </li>
+            </ul>
+        </div>
+        <div class="left-box">
+            <iframe width="420" height="315"
+            src="https://www.youtube.com/watch?v=rDDaEVcwIJM">
+            </iframe> 
+        </div>
+    </div>
 
     <div class="container">
         <textarea id="left-box" class="left-box" rows="20" placeholder="Liberation Mono">
@@ -37,11 +48,11 @@ I have 12 apples. If I give you 7, I'll have b remaining. (b=1011, which is 2 mo
 
 Cab is my favorite word, and cab is my favorite number.
 
-   101010101010
-x      3                  
-   101010101010
-+ 0101010101010
-= 01,1111,1111,1110 (QED :)
+     101010101010
+x           3                  
+>   101010101010
++  101010101010
+=  1,1111,1111,1110 (QED :)
 
 Big number better with "shift":
 1.11&lt;&lt;f = 1110,0000,0000,0000
@@ -56,9 +67,37 @@ Count by 5's:
 
 A number is divisible by 5 if the even and odd base 4 groupings have a difference divisible by 5. The secret key to remember is .333... = 1/5
 
+Lets find 1/b using long division:
+
+     0.0001011101
+1011\1.0 0 0 0 0 0
+-      1011  0 0 0
+         101  0 0 0
+-        1011  0 0
+          1001  0 0
+-         1011 0 0
+           0111 0 0
+-          1011  0
+            0011  0
+-            1011 
+                 1
+                 
+(Yeah, long division is gross even in binary. But at least the "guess and check" step is gone)
+
+An easier way to find 1/n for any n is to find n's "magic sequence": Start with 1, multiply by 2 modulo n, and repeat until you arrive back at 1. So for 1/b:
+ 1,2,4,8,5,a,9,7,3,6,1
+Then put a 1 wherever the number decreased, and a 0 elsewhere:
+0 . 0     0     0      1    0      1    1     1     0    1  = 0.00010,11101 (Note the complementary symmetry present in cyclic expansions)
+
+For 1/e:
+1,2,4,8,2,4,8,
+0. 0    0    0      1     0     0     1 ... = 0.0,001,001, which of course is just half of 1/7
+        
+        
         
         </textarea>
         <textarea id="right-box" class="right-box" rows="20" placeholder="MyCustomFont"></textarea>
     </div>
+        
 </body>
 </html>

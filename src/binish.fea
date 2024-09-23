@@ -23,6 +23,12 @@ feature liga {
 } liga;
 
 feature liga {
+  # Half width spaces after spaces
+  sub space space' by halfspace;
+  sub halfspace space' by halfspace;
+  sub @hexout space' by halfspace;
+  sub @binout space' by halfspace;
+  
   ignore sub @nonhexout @hex';
   ignore sub @hex @hex';
 
