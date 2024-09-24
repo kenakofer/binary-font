@@ -5,7 +5,7 @@
 @binhexout = [x0 x1];
 
 @nonbinhex = [two three four five six seven eight nine A B C D E F];
-@hex = [@bin @nonbinhex];
+@hex = [@bin @nonbinhex R period];
 @nonbinhexout = [x2 x3 x4 x5 x6 x7 x8 x9 xAhinted xBhinted xChinted xDhinted xEhinted xFhinted];
 @binhexoutupper = [x0 xxx1];
 @nonbinhexouttrimmed = [x2trimmed x3trimmed x4trimmed x5trimmed x6trimmed x7trimmed];
@@ -15,7 +15,7 @@
 
 @nonhexout = [a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
-@nonhexin = [a b c d e f g h i j k l m n o p q r s t u v w x y z G H I J K L M N O P Q R S T U V W X Y Z ];
+@nonhexin = [a b c d e f g h i j k l m n o p q r s t u v w x y z G H I J K L M N O P Q S T U V W X Y Z ];
 
 feature liga {
   # <</>> with guillemot
@@ -66,7 +66,9 @@ feature liga {
 
   # Determined by prior
   sub @hexout @nonbinhex' by @nonbinhexout;
-  sub period @nonbinhex' by @nonbinhexout;
+  sub xperiod @nonbinhex' by @nonbinhexout;
+  sub xperiod period' by xperiod;
+  sub xrepeating @nonbinhex' by @nonbinhexout;
   
   # Determined by self
   sub @nonbinhex' by @nonbinhexoutupper;
@@ -99,4 +101,9 @@ feature liga {
 
   # Omit commas between bin stuffs
   sub @binout comma' @bin by binseparator;
+  
+  # Periods and repeats
+  sub period' @hex by xperiod;
+  sub R' @hex by xrepeating;
+  
 } liga;

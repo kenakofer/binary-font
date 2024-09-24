@@ -2,11 +2,8 @@
 A smart font for hexadecimal and binary numeric transparency.
 
 ## TODO
-- Add way to type in decimal
 - Shift glyphs right to center better.
-- decimal and repeating points with 0 width
 - Better test page and README
-- Repeating decimal notation design
 - See how it works in latex
 - Calculator/converter from decimal
 - 0x and 0b?
