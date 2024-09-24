@@ -1,15 +1,12 @@
 ## Binary Font
-A smart font for hexadecimal and binary numeric tranparency.
+A smart font for hexadecimal and binary numeric transparency.
 
 ## TODO
 - Add way to type in decimal
-- Remove leading 0s in hex
 - Shift glyphs right to center better.
 - decimal and repeating points with 0 width
 - Better test page and README
-- Better stylization, maybe hide the numerals in the hex digits?
-    - Should be easier to handwrite
-    - Repeating decimal notation design
+- Repeating decimal notation design
 - See how it works in latex
 - Calculator/converter from decimal
 - 0x and 0b?
@@ -30,6 +27,6 @@ A smart font for hexadecimal and binary numeric tranparency.
     - Right click -> Glyph Info -> Glyph Name. Change the glyph name to match the glyph name used in binish.fea
     - You can use the metrics window to check how things look, but it's mostly superior to see how it works in step 4.
     - Save the fontforge project
-    - Generate (ctrl-shift-G) liberation_binary.otf, replacing and ignoring errors and generating.
-3. From project dir, run `fonttools feaLib -o fonts/liberation_binary_rules.otf src/binish.fea fonts/liberation_binary.otf`. This will create/overwrite liberation_binary_rules.otf
+    - Generate (ctrl-shift-G) liberation_binary_no_rules.otf, replacing and ignoring errors and generating.
+3. From project dir, run `fonttools feaLib -o fonts/liberation_binary.otf src/binish.fea fonts/liberation_binary_no_rules.otf`. This will create/overwrite liberation_binary.otf
 4. In browser, open or hard refresh index.html to see the font in use.
