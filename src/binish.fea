@@ -4,7 +4,7 @@
 @binout = [@binoutlower @binoutupper];
 @binhexout = [x0 x1];
 
-@nonbinhex = [two three four five six seven eight nine a b c d e f];
+@nonbinhex = [two three four five six seven eight nine A B C D E F];
 @hex = [@bin @nonbinhex];
 @nonbinhexout = [x2 x3 x4 x5 x6 x7 x8 x9 xAhinted xBhinted xChinted xDhinted xEhinted xFhinted];
 @binhexoutupper = [x0 xxx1];
@@ -15,7 +15,7 @@
 
 @nonhexout = [a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
 
-@nonhexin = [g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ];
+@nonhexin = [a b c d e f g h i j k l m n o p q r s t u v w x y z G H I J K L M N O P Q R S T U V W X Y Z ];
 
 feature liga {
   # <</>> with guillemot
@@ -63,14 +63,10 @@ feature liga {
   ignore sub space a' space;
 
 
-  # Determined' by previous
-  sub @binout @bin' by @binoutlower;
-  sub @hexout @bin' by @binhexout;
-
 
   # Determined by prior
   sub @hexout @nonbinhex' by @nonbinhexout;
-  sub @hexout @bin' by @binhexout;
+  sub period @nonbinhex' by @nonbinhexout;
   
   # Determined by self
   sub @nonbinhex' by @nonbinhexoutupper;
@@ -94,6 +90,9 @@ feature liga {
   sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexoutupper;
   sub @bin' @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @bin @nonbinhex by @binhexoutupper;
 
+  # Determined' by previous
+  sub @binout @bin' by @binoutlower;
+  sub @hexout @bin' by @binhexout;
 
   # Pretty safe it's intended to be binary, and it's the first so use the one without the tail.
   sub @bin' by @binoutupper;
